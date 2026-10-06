@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  --color-bg: #f3efe6;
+  --color-bg-sunken: #ebe4d6;
+  --color-surface: #faf7f1;
+  --color-paper: #fffdf8;
+  --color-ink: #1a1814;
+  --color-ink-muted: #6b6458;
+  --color-ink-subtle: #8a8276;
+  --color-rule: #d9d0c1;
+  --color-rule-strong: #c4b8a4;
+  --color-accent: #1b4d3e;
+  --color-accent-hover: #163e32;
+  --color-accent-fg: #f4efe4;
+  --color-accent-soft: #dce8e2;
+  --color-input: #e7f0fa;
+  --color-input-border: #7ba3d4;
+  --color-profit: #1b5c3a;
+  --color-loss: #9b2c2c;
+  --color-loss-soft: #f4e4e0;
+  --color-profit-soft: #dce8df;
+  --color-estimate: #f7f0d8;
+  --color-binding: #1b4d3e;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  :root {
+    --color-bg: #ffffff;
+    --color-surface: #ffffff;
+    --color-paper: #ffffff;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-break {
+    break-before: page;
+  }
+
+  .print-show {
+    display: block !important;
+  }
+}
